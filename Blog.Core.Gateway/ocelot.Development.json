@@ -45,6 +45,19 @@
         }
       ],
       "LoadBalancer": "RoundRobin"
+    },
+    {
+      "UpstreamPathTemplate": "/api/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9291
+        }
+      ],
+      "LoadBalancer": "RoundRobin"
     }
 
   ],

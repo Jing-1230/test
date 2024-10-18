@@ -96,7 +96,11 @@ builder.Services.AddScoped<UseServiceDIAttribute>();
 builder.Services.Configure<KestrelServerOptions>(x => x.AllowSynchronousIO = true)
     .Configure<IISServerOptions>(x => x.AllowSynchronousIO = true);
 
-builder.Services.AddSession();
+builder.Services.AddSession(options => {
+    options.IdleTimeout = TimeSpan.FromHours(12);
+    options.Cookie.Name = ".testProject.Session";
+    options.Cookie.IsEssential = true;
+});
 builder.Services.AddDataProtectionSetup();
 builder.Services.AddControllers(o =>
     {

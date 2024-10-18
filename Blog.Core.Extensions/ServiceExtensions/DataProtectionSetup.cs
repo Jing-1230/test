@@ -13,6 +13,8 @@ public static class DataProtectionSetup
         var builder = services.AddDataProtection();
 
         var redisOption = App.GetOptions<RedisOptions>();
+        System.Console.WriteLine("redisOption.ConnectionStringxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+        System.Console.WriteLine(redisOption.ConnectionString);
         if (redisOption.Enable)
         {
             builder.PersistKeysToStackExchangeRedis(App.GetService<IConnectionMultiplexer>());

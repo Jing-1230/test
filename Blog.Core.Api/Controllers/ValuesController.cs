@@ -33,7 +33,7 @@ namespace Blog.Core.Controllers
     //[Authorize(Roles = "Admin,Client")]
     //[Authorize(Policy = "SystemOrAdmin")]
     //[Authorize(PermissionNames.Permission)]
-    [Authorize]
+    //[Authorize]
     public class ValuesController : BaseApiController
     {
         private IMapper _mapper;
@@ -156,7 +156,7 @@ namespace Blog.Core.Controllers
              */
             var queryBySql =
                 await _blogArticleServices.QuerySql(
-                    "SELECT bsubmitter,btitle,bcontent,bCreateTime FROM BlogArticle WHERE bID>5");
+                    "SELECT bsubmitter,btitle,bcontent,bCreateTime FROM blogarticle WHERE bID>0");
 
             /*
              *  测试按照指定列查询

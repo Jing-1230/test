@@ -68,6 +68,10 @@ namespace Blog.Core.IServices.BASE
         Task<bool> UpdateSplit(TEntity entity, DateTime dateTime);
         Task<PageModel<TEntity>> QueryPageSplit(Expression<Func<TEntity, bool>> whereExpression, DateTime beginTime, DateTime endTime, int pageIndex = 1, int pageSize = 20, string orderByFields = null);
         #endregion
+
+        #region 自建
+        Task<int> AddReturnIdentity(TEntity entity);
+        #endregion
     }
 
 }

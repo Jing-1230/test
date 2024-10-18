@@ -254,5 +254,14 @@ namespace Blog.Core.IRepository.Base
         /// <returns></returns>
         Task<PageModel<TEntity>> QueryPageSplit(Expression<Func<TEntity, bool>> whereExpression, DateTime beginTime, DateTime endTime, int pageIndex = 1, int pageSize = 20, string orderByFields = null);
         #endregion
+
+        #region 自建
+        /// <summary>
+        /// 写入实体，返回数据库自增ID
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        Task<int> AddReturnIdentity(TEntity entity);
+        #endregion
     }
 }

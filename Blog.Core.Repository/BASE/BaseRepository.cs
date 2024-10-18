@@ -635,5 +635,22 @@ namespace Blog.Core.Repository.Base
         }
 
         #endregion
+
+        #region 自建
+
+        /// <summary>
+        /// 写入实体，返回数据库自增ID
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public async Task<int> AddReturnIdentity(TEntity entity)
+        {
+            var insert = _db.Insertable(entity);
+
+            //这里你可以返回TEntity，这样的话就可以获取id值，无论主键是什么类型
+            //var return3 = await insert.ExecuteReturnEntityAsync();
+            return await insert.ExecuteReturnIdentityAsync();
+        }
+        #endregion
     }
 }

@@ -12,7 +12,7 @@ namespace Blog.Core.Api.Controllers
     /// </summary>
     [Produces("application/json")]
     [Route("api/[Controller]/[action]")]
-    [Authorize(Permissions.Name)]
+    //[Authorize(Permissions.Name)]
     public class NacosController : BaseApiController
     {
 
@@ -117,6 +117,10 @@ namespace Blog.Core.Api.Controllers
                 Weight = 100,
                 Metadata = JsonConfigSettings.NacosMetadata
             };
+            System.Console.WriteLine("######################################################");
+            System.Console.WriteLine(JsonConfigSettings.NacosServiceName);
+            System.Console.WriteLine(Nacos.V2.Common.Constants.DEFAULT_GROUP);
+            System.Console.WriteLine("######################################################");
             await NacosNamingService.RegisterInstance(JsonConfigSettings.NacosServiceName, Nacos.V2.Common.Constants.DEFAULT_GROUP, instance);
             data.success = true;
             data.msg = "SUCCESS";

@@ -104,7 +104,7 @@ namespace Blog.Core.AuthHelper
                 }
                 else
                 {
-                    await httpContext.Cof_SendResponse(HttpStatusCode.Unauthorized, "请重新登录");
+                    await httpContext.Cof_SendResponse(HttpStatusCode.Unauthorized, "请重新登录2");
                     return ;
                 }
 

@@ -377,5 +377,17 @@ namespace Blog.Core.Services.BASE
         }
 
         #endregion
+
+        #region 自建
+        /// <summary>
+        /// 写入实体，返回数据库自增ID
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public async Task<int> AddReturnIdentity(TEntity entity)
+        {
+            return await BaseDal.AddReturnIdentity(entity);
+        }
+        #endregion
     }
 }
