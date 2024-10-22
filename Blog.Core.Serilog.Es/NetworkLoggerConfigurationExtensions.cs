@@ -8,6 +8,7 @@ using Serilog.Events;
 using Serilog.Formatting;
 using Blog.Core.Serilog.Es.Formatters;
 using Blog.Core.Serilog.Es.Sinks.TCP;
+using Microsoft.Extensions.Configuration;
 
 namespace Blog.Core.Serilog.Es
 {
@@ -29,6 +30,7 @@ namespace Blog.Core.Serilog.Es
             {
                 return;
             }
+    
             TcpAddressHost = logConfigRootDTOInfo.tcpAddressHost;
             TcpAddressProt = logConfigRootDTOInfo.tcpAddressPort;
         }

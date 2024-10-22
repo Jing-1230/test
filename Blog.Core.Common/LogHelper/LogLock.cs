@@ -182,7 +182,7 @@ namespace Blog.Core.Common.LogHelper
             //{
             //    log4net.LogicalThreadContext.Properties["DataType"] = dataParas[0];
             //}
-
+            
             dataParas = dataParas.Skip(1).ToArray();
 
             string logContent = String.Join("", dataParas);
@@ -195,25 +195,25 @@ namespace Blog.Core.Common.LogHelper
             {
                 //DEBUG | INFO | WARN | ERROR | FATAL
                 case "AOPLog":
-                    Log.Information(logContent);
+                    Log.ForContext("logType", "information").Information(logContent);
                     break;
                 case "AOPLogEx":
-                    Log.Error(logContent);
+                    Log.ForContext("logType","error").Error(logContent);
                     break;
                 case "RequestIpInfoLog":
                     //TODO 是否需要Debug输出？
-                    Log.Information(logContent);
+                    Log.ForContext("logType", "information").Information(logContent);
                     break;
                 case "RecordAccessLogs":
                     //TODO 是否需要Debug输出？
-                    Log.Information(logContent);
+                    Log.ForContext("logType", "information").Information(logContent);
                     break;
                 case "SqlLog":
-                    Log.Information(logContent);
+                    Log.ForContext("logType", "sql").Information(logContent);
                     break;
                 case "RequestResponseLog":
                     //TODO 是否需要Debug输出？
-                    Log.Information(logContent);
+                    Log.ForContext("logType", "information").Information(logContent);
                     break;
                 default:
                     break;

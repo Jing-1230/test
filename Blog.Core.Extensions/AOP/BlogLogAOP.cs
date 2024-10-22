@@ -152,6 +152,7 @@ namespace Blog.Core.AOP
 					Parallel.For(0, 1, e =>
 					{
 						//LogLock.OutLogAOP("AOPLog", new string[] { dataIntercept });
+						System.Console.WriteLine("####################################BlogLogAOP");
 						LogLock.OutLogAOP("AOPLog", _accessor.HttpContext?.TraceIdentifier,
 							new string[] {apiLogAopInfo.GetType().ToString(), JsonConvert.SerializeObject(apiLogAopInfo)});
 					});
@@ -194,8 +195,9 @@ namespace Blog.Core.AOP
 			{
 				Parallel.For(0, 1, e =>
 				{
-					//LogLock.OutSql2Log("AOPLog", new string[] { JsonConvert.SerializeObject(apiLogAopInfo) });
-					LogLock.OutLogAOP("AOPLog", _accessor.HttpContext?.TraceIdentifier,
+                    //LogLock.OutSql2Log("AOPLog", new string[] { JsonConvert.SerializeObject(apiLogAopInfo) });
+                    System.Console.WriteLine("####################################BlogLogAOP2");
+                    LogLock.OutLogAOP("AOPLog", _accessor.HttpContext?.TraceIdentifier,
 						new string[] {apiLogAopInfo.GetType().ToString(), JsonConvert.SerializeObject(apiLogAopInfo)});
 				});
 			});
@@ -219,8 +221,9 @@ namespace Blog.Core.AOP
 				// 异常日志里有详细的堆栈信息
 				Parallel.For(0, 1, e =>
 				{
-					//LogLock.OutLogAOP("AOPLogEx", new string[] { dataIntercept });
-					LogLock.OutLogAOP("AOPLogEx", _accessor.HttpContext?.TraceIdentifier,
+                    //LogLock.OutLogAOP("AOPLogEx", new string[] { dataIntercept });
+                    System.Console.WriteLine("####################################BlogLogAOP3");
+                    LogLock.OutLogAOP("AOPLogEx", _accessor.HttpContext?.TraceIdentifier,
 						new string[] {apiLogAopExInfo.GetType().ToString(), JsonConvert.SerializeObject(apiLogAopExInfo)});
 				});
 			}

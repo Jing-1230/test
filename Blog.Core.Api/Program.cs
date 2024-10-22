@@ -64,7 +64,8 @@ builder.Services.AddSqlsugarSetup();
 builder.Services.AddDbSetup();
 builder.Services.AddInitializationHostServiceSetup();
 
-builder.Host.AddSerilogSetup();
+//builder.Host.AddSerilogSetup();
+builder.Host.AddSerilogEsSetup();
 
 builder.Services.AddAutoMapperSetup();
 builder.Services.AddCorsSetup();

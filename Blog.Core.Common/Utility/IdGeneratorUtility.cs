@@ -64,6 +64,6 @@ public class IdGeneratorUtility
         if (!AutoRegister.IsValueCreated) return;
 
         AutoRegister.Value.UnRegister();
-        Log.Information("Snowflake Id Unregistered");
+        Log.ForContext("logType", "information").Information("Snowflake Id Unregistered");
     }
 }

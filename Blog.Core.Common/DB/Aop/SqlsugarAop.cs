@@ -27,7 +27,7 @@ public static class SqlSugarAop
             {
                 using (LogContextExtension.Create.SqlAopPushProperty(sqlSugarScopeProvider))
                 {
-                    Log.Information(
+                    Log.ForContext("logType", "sql").Information(
                         "------------------ \r\n User:[{User}]  Table:[{Table}]  Operate:[{Operate}] ConnId:[{ConnId}]【SQL语句】: \r\n {Sql}",
                         user, table, operate, config.ConfigId, UtilMethods.GetNativeSql(sql, p));
                 }
@@ -35,7 +35,7 @@ public static class SqlSugarAop
         }
         catch (Exception e)
         {
-            Log.Error("Error occured OnLogExcuting:" + e);
+            Log.ForContext("logType", "error").Error("Error occured OnLogExcuting:" + e);
         }
     }
 

@@ -80,8 +80,9 @@ namespace Blog.Core.Extensions.Middlewares
 			{
 				Parallel.For(0, 1, e =>
 				{
-					//LogLock.OutSql2Log("RequestResponseLog", new string[] { "Request Data:", content });
-					LogLock.OutLogAOP("RequestResponseLog", context.TraceIdentifier,
+                    //LogLock.OutSql2Log("RequestResponseLog", new string[] { "Request Data:", content });
+                    System.Console.WriteLine("####################################RequRespLogMiddleware");
+                    LogLock.OutLogAOP("RequestResponseLog", context.TraceIdentifier,
 						new string[] {"Request Data -  RequestJsonDataType:" + requestResponse.GetType().ToString(), content});
 				});
 				//SerilogServer.WriteLog("RequestResponseLog", new string[] { "Request Data:", content });
@@ -102,8 +103,9 @@ namespace Blog.Core.Extensions.Middlewares
 				var isHtml = Regex.IsMatch(responseBody, reg);
                 Parallel.For(0, 1, e =>
 				{
-					//LogLock.OutSql2Log("RequestResponseLog", new string[] { "Response Data:", ResponseBody });
-					LogLock.OutLogAOP("RequestResponseLog", response.HttpContext.TraceIdentifier,
+                    //LogLock.OutSql2Log("RequestResponseLog", new string[] { "Response Data:", ResponseBody });
+                    System.Console.WriteLine("####################################RecordAccessLogMiddleware2");
+                    LogLock.OutLogAOP("RequestResponseLog", response.HttpContext.TraceIdentifier,
 						new string[] {"Response Data -  ResponseJsonDataType:" + responseBody.GetType().ToString(), responseBody});
 				});
 				//SerilogServer.WriteLog("RequestResponseLog", new string[] { "Response Data:", responseBody });
@@ -123,8 +125,9 @@ namespace Blog.Core.Extensions.Middlewares
 			{
 				Parallel.For(0, 1, e =>
 				{
-					//LogLock.OutSql2Log("RequestResponseLog", new string[] { "Response Data:", ResponseBody });
-					LogLock.OutLogAOP("RequestResponseLog", response.HttpContext.TraceIdentifier,
+                    //LogLock.OutSql2Log("RequestResponseLog", new string[] { "Response Data:", ResponseBody });
+                    System.Console.WriteLine("####################################RecordAccessLogMiddleware3");
+                    LogLock.OutLogAOP("RequestResponseLog", response.HttpContext.TraceIdentifier,
 						new string[] {"Response Data -  ResponseJsonDataType:" + responseBody.GetType().ToString(), responseBody});
 				});
 				//SerilogServer.WriteLog("RequestResponseLog", new string[] { "Response Data:", responseBody });

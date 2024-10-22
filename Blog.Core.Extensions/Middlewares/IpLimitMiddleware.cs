@@ -24,7 +24,7 @@ namespace Blog.Core.Extensions.Middlewares
             }
             catch (Exception e)
             {
-                Log.Error($"Error occured limiting ip rate.\n{e.Message}");
+                Log.ForContext("logType", "error").Error($"Error occured limiting ip rate.\n{e.Message}");
                 throw;
             }
         }

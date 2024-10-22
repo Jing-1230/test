@@ -100,7 +100,7 @@ namespace Blog.Core.Controllers
         public async Task<MessageModel<BlogViewModels>> DetailNuxtNoPer(long id)
         {
             _logger.LogInformation("xxxxxxxxxxxxxxxxxxx");
-            Log.Information("yyyyyyyyyyyyyyyyy");
+            Log.ForContext("logType", "information").Information("yyyyyyyyyyyyyyyyy");
             return Success(await _blogArticleServices.GetBlogDetails(id));
         }
 

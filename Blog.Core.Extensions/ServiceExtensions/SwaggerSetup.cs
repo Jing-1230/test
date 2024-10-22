@@ -55,7 +55,7 @@ namespace Blog.Core.Extensions
                 }
                 catch (Exception ex)
                 {
-                    Log.Error("Blog.Core.xml和Blog.Core.Model.xml 丢失，请检查并拷贝。\n" + ex.Message);
+                    Log.ForContext("logType", "error").Error("Blog.Core.xml和Blog.Core.Model.xml 丢失，请检查并拷贝。\n" + ex.Message);
                 }
 
                 // 开启加权小锁

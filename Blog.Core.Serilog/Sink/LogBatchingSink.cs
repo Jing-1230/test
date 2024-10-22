@@ -68,7 +68,8 @@ public class LogBatchingSink : IBatchedLogEventSink
             logs.Add(log);
         }
 
-        await db.AsTenant().InsertableWithAttr(logs).SplitTable().ExecuteReturnSnowflakeIdAsync();
+        //await db.AsTenant().InsertableWithAttr(logs).SplitTable().ExecuteReturnSnowflakeIdAsync();
+        await db.AsTenant().InsertableWithAttr(logs).ExecuteReturnSnowflakeIdAsync();
     }
 
     private async Task WriteWarningLog(ISqlSugarClient db, IEnumerable<LogEvent> batch)
@@ -88,7 +89,8 @@ public class LogBatchingSink : IBatchedLogEventSink
             logs.Add(log);
         }
 
-        await db.AsTenant().InsertableWithAttr(logs).SplitTable().ExecuteReturnSnowflakeIdAsync();
+        //await db.AsTenant().InsertableWithAttr(logs).SplitTable().ExecuteReturnSnowflakeIdAsync();
+        await db.AsTenant().InsertableWithAttr(logs).ExecuteReturnSnowflakeIdAsync();
     }
 
     private async Task WriteErrorLog(ISqlSugarClient db, IEnumerable<LogEvent> batch)
@@ -108,7 +110,8 @@ public class LogBatchingSink : IBatchedLogEventSink
             logs.Add(log);
         }
 
-        await db.AsTenant().InsertableWithAttr(logs).SplitTable().ExecuteReturnSnowflakeIdAsync();
+        //await db.AsTenant().InsertableWithAttr(logs).SplitTable().ExecuteReturnSnowflakeIdAsync();
+        await db.AsTenant().InsertableWithAttr(logs).ExecuteReturnSnowflakeIdAsync();
     }
 
     private async Task WriteSqlLog(ISqlSugarClient db, IEnumerable<LogEvent> batch)
@@ -128,7 +131,8 @@ public class LogBatchingSink : IBatchedLogEventSink
             logs.Add(log);
         }
 
-        await db.AsTenant().InsertableWithAttr(logs).SplitTable().ExecuteReturnSnowflakeIdAsync();
+        //await db.AsTenant().InsertableWithAttr(logs).SplitTable().ExecuteReturnSnowflakeIdAsync();
+        await db.AsTenant().InsertableWithAttr(logs).ExecuteReturnSnowflakeIdAsync();
     }
 
     #endregion

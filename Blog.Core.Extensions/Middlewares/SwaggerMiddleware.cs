@@ -31,7 +31,7 @@ namespace Blog.Core.Extensions.Middlewares
                 if (streamHtml.Invoke() == null)
                 {
                     var msg = "index.html的属性，必须设置为嵌入的资源";
-                    Log.Error(msg);
+                    Log.ForContext("logType", "error").Error(msg);
                     throw new Exception(msg);
                 }
 

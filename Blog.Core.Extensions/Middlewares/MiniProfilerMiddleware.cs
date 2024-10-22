@@ -25,7 +25,7 @@ namespace Blog.Core.Extensions.Middlewares
             }
             catch (Exception e)
             {
-                Log.Error($"An error was reported when starting the MiniProfilerMildd.\n{e.Message}");
+                Log.ForContext("logType", "error").Error($"An error was reported when starting the MiniProfilerMildd.\n{e.Message}");
                 throw;
             }
         }

@@ -58,8 +58,9 @@ namespace Blog.Core.Extensions.Middlewares
 						// 自定义log输出
 						Parallel.For(0, 1, e =>
 						{
-							//LogLock.OutSql2Log("RequestIpInfoLog", new string[] { requestInfo + "," }, false);
-							LogLock.OutLogAOP("RequestIpInfoLog", context.TraceIdentifier,
+                            //LogLock.OutSql2Log("RequestIpInfoLog", new string[] { requestInfo + "," }, false);
+                            System.Console.WriteLine("####################################IpLogMiddleware");
+                            LogLock.OutLogAOP("RequestIpInfoLog", context.TraceIdentifier,
 								new string[] {requestInfo.GetType().ToString(), requestInfo}, false);
 						});
 

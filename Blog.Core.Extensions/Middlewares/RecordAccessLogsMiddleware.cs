@@ -100,8 +100,9 @@ namespace Blog.Core.Extensions.Middlewares
 						var requestInfo = JsonConvert.SerializeObject(userAccessModel);
 						Parallel.For(0, 1, e =>
 						{
-							//LogLock.OutSql2Log("RecordAccessLogs", new string[] { requestInfo + "," }, false);
-							LogLock.OutLogAOP("RecordAccessLogs", context.TraceIdentifier,
+                            //LogLock.OutSql2Log("RecordAccessLogs", new string[] { requestInfo + "," }, false);
+                            System.Console.WriteLine("####################################RecordAccessLogMiddleware");
+                            LogLock.OutLogAOP("RecordAccessLogs", context.TraceIdentifier,
 								new string[] {userAccessModel.GetType().ToString(), requestInfo}, false);
 						});
 						//var logFileName = FileHelper.GetAvailableFileNameWithPrefixOrderSize(_environment.ContentRootPath, "RecordAccessLogs");
